@@ -40,15 +40,15 @@
 // 1)
 
 // a)
-const mostrarMensagem = () =>
+const mostraMensagem = () =>
   console.log(
     'Eu sou Luiz Gustavo, tenho 34 anos, moro em Santo Antônio do Amparo e sou estudante.'
   );
 
-mostrarMensagem();
+mostraMensagem();
 
 // b)
-const exibirInformacoesUsuario = (nome, idade, endereco, profissao) => {
+const exibeInformacoesUsuario = (nome, idade, endereco, profissao) => {
   return `Eu sou ${nome}, tenho ${idade} anos, moro em ${endereco} e sou ${profissao}.`;
 };
 
@@ -58,7 +58,7 @@ const inputendereco = prompt('Qual o seu endereco');
 const inputprofissao = prompt('Qual a sua profissao');
 
 console.log(
-  exibirInformacoesUsuario(inputnome, inputidade, inputendereco, inputprofissao)
+  exibeInformacoesUsuario(inputnome, inputidade, inputendereco, inputprofissao)
 );
 
 // 2)
