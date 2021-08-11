@@ -9,7 +9,17 @@ function inverteArray(array) {
 }
 
 // EXERCÍCIO 02
-function retornaNumerosParesElevadosADois(array) {}
+function retornaNumerosParesElevadosADois(array) {
+  const arrayNumerosPares = [];
+  for (let num of array) {
+    if (num % 2 === 0) {
+      num = num ** 2;
+      arrayNumerosPares.push(num);
+    }
+  }
+
+  return arrayNumerosPares;
+}
 
 // EXERCÍCIO 03
 function retornaNumerosPares(array) {}
