@@ -22,7 +22,16 @@ function retornaNumerosParesElevadosADois(array) {
 }
 
 // EXERCÍCIO 03
-function retornaNumerosPares(array) {}
+function retornaNumerosPares(array) {
+  const arrayNumerosPares = [];
+  for (let num of array) {
+    if (num % 2 === 0) {
+      arrayNumerosPares.push(num);
+    }
+  }
+
+  return arrayNumerosPares;
+}
 
 // EXERCÍCIO 04
 function retornaMaiorNumero(array) {}
