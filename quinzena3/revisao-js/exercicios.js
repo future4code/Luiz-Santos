@@ -34,7 +34,16 @@ function retornaNumerosPares(array) {
 }
 
 // EXERCÍCIO 04
-function retornaMaiorNumero(array) {}
+function retornaMaiorNumero(array) {
+  let maior = 0;
+  for (let num of array) {
+    if (num > maior) {
+      maior = num;
+    }
+  }
+
+  return maior;
+}
 
 // EXERCÍCIO 05
 function retornaQuantidadeElementos(array) {}
