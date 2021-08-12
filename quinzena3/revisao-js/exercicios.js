@@ -230,7 +230,17 @@ function multiplicaArrayPor2S(array) {
 }
 
 // EXERCÍCIO 17C
-function verificaParidade(array) {}
+function verificaParidade(array) {
+  const novoArray = array.map((num) => {
+    if (num % 2 === 0) {
+      return `${num} é par`;
+    } else {
+      return `${num} é ímpar`;
+    }
+  });
+
+  return novoArray;
+}
 
 // EXERCÍCIO 18A
 function retornaPessoasAutorizadas(pessoas) {}
