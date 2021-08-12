@@ -129,7 +129,18 @@ function comparaDoisNumeros(num1, num2) {
 }
 
 // EXERCÍCIO 10
-function segundoMaiorEMenor(array) {}
+function segundoMaiorEMenor(array) {
+  let segundoMaior = 0;
+  let segundoMenor = 0;
+  const ultimaPosicao = array.length - 1;
+
+  const arrayOrdenado = array.sort((a, b) => a - b);
+
+  segundoMenor = arrayOrdenado[1];
+  segundoMaior = arrayOrdenado[ultimaPosicao - 1];
+
+  return [segundoMaior, segundoMenor];
+}
 
 // EXERCÍCIO 11
 function ordenaArray(array) {}
