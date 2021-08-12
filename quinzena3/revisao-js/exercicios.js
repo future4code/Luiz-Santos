@@ -207,7 +207,11 @@ function maioresDe18(arrayDePessoas) {
 }
 
 // EXERCÍCIO 16B
-function menoresDe18(arrayDePessoas) {}
+function menoresDe18(arrayDePessoas) {
+  const menoresDeDezoito = arrayDePessoas.filter((pessoa) => pessoa.idade < 18);
+
+  return menoresDeDezoito;
+}
 
 // EXERCÍCIO 17A
 function multiplicaArrayPor2(array) {}
