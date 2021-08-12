@@ -270,21 +270,7 @@ function ordenaPorNome(consultasNome) {
 }
 
 // EXERCÍCIO 19B
-function ordenaPorData(consultasData) {
-  const arrayOrdenado = consultasData.sort((a, b) => {
-    return new Date(b.dataDaConsulta) - new Date(a.dataDaConsulta);
-  });
-
-  return arrayOrdenado;
-}
-
-const data1 = '04/05/2021';
-const data2 = '02/07/2021';
-
-const data = new Date('02/07/2021');
-
-console.log(data1 > data2);
-console.log(data);
+function ordenaPorData(consultasData) {}
 
 // EXERCÍCIO 20
 function calculaSaldo(contas) {
