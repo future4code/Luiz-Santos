@@ -221,7 +221,13 @@ function multiplicaArrayPor2(array) {
 }
 
 // EXERCÍCIO 17B
-function multiplicaArrayPor2S(array) {}
+function multiplicaArrayPor2S(array) {
+  const novoArray = array.map((num) => {
+    return `${num * 2}`;
+  });
+
+  return novoArray;
+}
 
 // EXERCÍCIO 17C
 function verificaParidade(array) {}
