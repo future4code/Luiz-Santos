@@ -214,7 +214,11 @@ function menoresDe18(arrayDePessoas) {
 }
 
 // EXERCÍCIO 17A
-function multiplicaArrayPor2(array) {}
+function multiplicaArrayPor2(array) {
+  const novoArray = array.map((num) => num * 2);
+
+  return novoArray;
+}
 
 // EXERCÍCIO 17B
 function multiplicaArrayPor2S(array) {}
