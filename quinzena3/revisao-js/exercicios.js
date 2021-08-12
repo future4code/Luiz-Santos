@@ -261,10 +261,42 @@ function retornaPessoasNaoAutorizadas(pessoas) {
 }
 
 // EXERCÍCIO 19A
-function ordenaPorNome(consultasNome) {}
+function ordenaPorNome(consultasNome) {
+  const arrayOrdenado = consultasNome.sort((a, b) => {
+    return a.nome.localeCompare(b.nome);
+  });
+
+  return arrayOrdenado;
+}
 
 // EXERCÍCIO 19B
-function ordenaPorData(consultasData) {}
+function ordenaPorData(consultasData) {
+  const arrayOrdenado = consultasData.sort((a, b) => {
+    return new Date(b.dataDaConsulta) - new Date(a.dataDaConsulta);
+  });
+
+  return arrayOrdenado;
+}
+
+const data1 = '04/05/2021';
+const data2 = '02/07/2021';
+
+const data = new Date('02/07/2021');
+
+console.log(data1 > data2);
+console.log(data);
 
 // EXERCÍCIO 20
-function calculaSaldo(contas) {}
+function calculaSaldo(contas) {
+  for (const conta of contas) {
+    let totalCompras = 0;
+
+    for (const compra of conta.compras) {
+      totalCompras += compra;
+    }
+
+    conta.saldoTotal -= totalCompras;
+  }
+
+  return contas;
+}
