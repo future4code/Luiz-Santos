@@ -188,7 +188,14 @@ function criaRetangulo(lado1, lado2) {
 }
 
 // EXERCÍCIO 15
-function anonimizaPessoa(pessoa) {}
+function anonimizaPessoa(pessoa) {
+  const newPessoa = {
+    ...pessoa,
+    nome: 'ANÔNIMO',
+  };
+
+  return newPessoa;
+}
 
 // EXERCÍCIO 16A
 function maioresDe18(arrayDePessoas) {}
