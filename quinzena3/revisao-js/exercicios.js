@@ -252,7 +252,13 @@ function retornaPessoasAutorizadas(pessoas) {
 }
 
 // EXERCÍCIO 18B
-function retornaPessoasNaoAutorizadas(pessoas) {}
+function retornaPessoasNaoAutorizadas(pessoas) {
+  const pessoasNaoAutorizadas = pessoas.filter((pessoa) => {
+    return pessoa.altura < 1.5 || pessoa.idade <= 14 || pessoa.idade > 60;
+  });
+
+  return pessoasNaoAutorizadas;
+}
 
 // EXERCÍCIO 19A
 function ordenaPorNome(consultasNome) {}
