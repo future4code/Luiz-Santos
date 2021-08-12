@@ -143,7 +143,11 @@ function segundoMaiorEMenor(array) {
 }
 
 // EXERCÍCIO 11
-function ordenaArray(array) {}
+function ordenaArray(array) {
+  const arrayOrdenado = array.sort((a, b) => a - b);
+
+  return arrayOrdenado;
+}
 
 // EXERCÍCIO 12
 function filmeFavorito() {}
