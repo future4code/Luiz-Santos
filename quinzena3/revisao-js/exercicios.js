@@ -93,9 +93,16 @@ function retornaNNumerosPares(n) {
 
 // EXERCÍCIO 08
 function checaTriangulo(a, b, c) {
-  // return 'Escaleno'
-  // return 'Equilátero'
-  // return 'Isósceles'
+  const equilatero = a == b && a == c && b == c;
+  const isoceles = a == b || (a == c && b == c);
+
+  if (equilatero) {
+    return 'Equilátero';
+  } else if (isoceles) {
+    return 'Isósceles';
+  } else {
+    return 'Escaleno';
+  }
 }
 
 // EXERCÍCIO 09
