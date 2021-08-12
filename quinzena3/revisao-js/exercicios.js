@@ -76,7 +76,20 @@ function retornaExpressoesBooleanas() {
 }
 
 // EXERCÍCIO 07
-function retornaNNumerosPares(n) {}
+function retornaNNumerosPares(n) {
+  const arrayPares = [];
+  let qtdPares = 0;
+  let i = 0;
+  while (qtdPares < n) {
+    if (i % 2 === 0) {
+      arrayPares.push(i);
+      qtdPares++;
+    }
+    i++;
+  }
+
+  return arrayPares;
+}
 
 // EXERCÍCIO 08
 function checaTriangulo(a, b, c) {
