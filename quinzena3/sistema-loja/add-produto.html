@@ -4,49 +4,68 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/styles.css" />
     <title>Adicionar Produto</title>
   </head>
   <body>
-    <div>
-      <p>Konoha Store</p>
+    <header class="header">
+      <div class="header-search">
+        <span class="header-logo"> Ecommerce</span>
+        <input type="search" name="search" id="search" placeholder="Buscar" />
+      </div>
+    </header>
+    <div class="header-navigation">
+      <nav class="menu">
+        <ul class="menu-list">
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+          <li><a href="add-produto.html">Adicionar Produto</a></li>
+          <li><a href="funcionarios.html">Funcionários</a></li>
+        </ul>
+      </nav>
     </div>
+    <div class="adicionar-produto">
+      <h2>Adicionar Produto</h2>
+      <form class="form-add-produto" action="">
+        <div class="input-group">
+          <label for="link-foto">Link para foto: </label>
+          <input type="url" id="link-foto" name="link-foto" />
+        </div>
 
-    <div>
-      <a href="index.html">Página Inicial</a>
-      <a href="ctrl-estoque.html">Controle de Estoque</a>
-      <a href="add-produto.html">Adicionar Produto</a>
-      <a href="funcionarios.html">Funcionários</a>
+        <div class="input-group">
+          <label for="descricao">Descrição do produto: </label>
+          <!-- Adicione o id apropriado para o input abaixo -->
+          <input type="text" id="descricao" name="descricao" />
+        </div>
+
+        <div class="input-group">
+          <label for="preco">Preço (em R$): </label>
+          <!-- Adicione o id apropriado e o type para receber números abaixo -->
+          <input type="number" id="preco" name="descricao" />
+        </div>
+
+        <div class="input-group">
+          <!-- Preencha as propriedades necessárias para os elementos abaixo -->
+          <label for="quantidade">Quantidade disponível: </label>
+          <input type="number" id="quantidade" name="quantidade" />
+        </div>
+
+        <div class="form-add">
+          <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
+          <button type="submit">Adicionar</button>
+        </div>
+      </form>
     </div>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>Siga-nos nas redes sociais!</p>
 
-    <h2>Adicionar Produto</h2>
-    <form action="">
-      <div>
-        <label for="link-foto">Link para foto: </label>
-        <input type="url" id="link-foto" name="link-foto" />
+        <div class="social-link">
+          <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+          <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+          <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+        </div>
       </div>
-
-      <div>
-        <label for="descricao">Descrição do produto: </label>
-        <!-- Adicione o id apropriado para o input abaixo -->
-        <input type="text" id="descricao" name="descricao" />
-      </div>
-
-      <div>
-        <label for="preco">Preço (em R$): </label>
-        <!-- Adicione o id apropriado e o type para receber números abaixo -->
-        <input type="number" id="preco" name="descricao" />
-      </div>
-
-      <div>
-        <!-- Preencha as propriedades necessárias para os elementos abaixo -->
-        <label for="quantidade">Quantidade disponível: </label>
-        <input type="number" id="quantidade" name="quantidade" />
-      </div>
-
-      <div class="form-add">
-        <!-- Adicione ao type do botão abaixo o valor para que ele submeta o formulário -->
-        <button type="submit">Adicionar</button>
-      </div>
-    </form>
+    </footer>
   </body>
 </html>
