@@ -218,11 +218,130 @@ img {
   outline: none;
   cursor: pointer;
   border-radius: 3px;
+  border: none;
   transition: all 0.2s;
 }
 
 .form-add button:hover {
-  background: #33363e;
+  background: #0f233ce1;
+}
+
+/* Controle de Estoque */
+
+.ctl-estoque {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.ctl-estoque-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ctl-estoque-header h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.ctl-estoque-header button {
+  padding: 8px 15px;
+
+  font-size: 1rem;
+  background: #ea1a25;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  transition: all 0.2s;
+}
+
+.ctl-estoque-header button:hover {
+  background: #ec474f;
+}
+
+.table-estoque {
+  width: 100%;
+}
+
+.table-estoque th {
+  background: #0f233c;
+  border: 1px solid #0f233c;
+
+  color: #fbfbfb;
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: 500;
+  padding: 10px 5px;
+}
+
+.table-estoque tr {
+  padding: 0 5px;
+  text-align: center;
+}
+
+.table-estoque tr:nth-child(2n + 1) {
+  background: #f8f8f8;
+}
+
+.table-estoque td {
+  border: 1px solid #e9e8e8;
+}
+
+.table-estoque td img {
+  max-width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+/* Funcionarios */
+
+.funcionarios {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+.funcionarios h2 {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+.lista-funcionarios {
+  list-style: none;
+}
+
+.lista-funcionarios li {
+  font-size: 1.125rem;
+  margin-bottom: 25px;
+  border-bottom: 1px solid #f8f8f8;
+  display: flex;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.lista-funcionarios li span {
+  display: block;
+  margin-bottom: 3px;
+}
+
+.lista-funcionarios li a {
+  display: block;
+  color: #1b63bb;
+  font-size: 1rem;
+  transition: all 0.2s;
+}
+
+.lista-funcionarios li a:hover {
+  transform: scale(1.1);
+}
+
+.lista-funcionarios img {
+  max-width: 100px;
 }
 
 /* Footer */
@@ -234,7 +353,7 @@ img {
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 40px 20px;
+  padding: 50px 20px;
 
   display: flex;
   align-items: center;
