@@ -33,10 +33,6 @@ div > p:first-child {
   display: inline-block;
 }
 
-div img {
-  background: black;
-}
-
 .botao-amarelo {
   background-color: #ffaf43;
   width: 250px;
@@ -112,6 +108,11 @@ table {
 table img {
   width: 100%;
   max-width: 80px;
+}
+
+.icone {
+  width: 24px;
+  height: 24px;
 }
 
 td button {
