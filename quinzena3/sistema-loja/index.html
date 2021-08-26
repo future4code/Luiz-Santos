@@ -4,36 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Konoha Store</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Ecommerce</title>
   </head>
   <body>
-    <div>
-      <h1>Bem-vind@ ao <em>Konoha Store</em>!</h1>
-      <p>
-        Os melhores acessórios ninja para você! Produtos exclusivos direto da
-        Aldeia da Folha.
-      </p>
+    <header class="header">
+      <div class="header-search">
+        <span class="header-logo"> Ecommerce</span>
+        <input type="search" name="search" id="search" placeholder="Buscar" />
+      </div>
+    </header>
+    <div class="header-navigation">
+      <nav class="menu">
+        <ul class="menu-list">
+          <li><a href="index.html">Página Inicial</a></li>
+          <li><a href="ctrl-estoque.html">Controle de Estoque</a></li>
+          <li><a href="add-produto.html">Adicionar Produto</a></li>
+          <li><a href="funcionarios.html">Funcionários</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <div>
-      <a href="index.html">Página Inicial</a>
-      <a href="ctrl-estoque.html">Controle de Estoque</a>
-      <a href="add-produto.html">Adicionar Produto</a>
-      <a href="funcionarios.html">Funcionários</a>
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-img">
+          <img
+            src="img/foto-loja-online.png"
+            alt="Ilustração mulher com caixas"
+          />
+        </div>
+        <div class="hero-info">
+          <h1>Ecommerce</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+            necessitatibus autem nulla. Perspiciatis eveniet itaque blanditiis
+            vel voluptatibus nihil nesciunt, et saepe quae dolorum. Architecto
+            dignissimos deserunt temporibus ipsam explicabo!
+          </p>
+          <a href="add-produto.html">Add Produto</a>
+        </div>
+      </div>
     </div>
 
     <div>
       <!-- ADICIONAR INFORMAÇOES SOBRE SUA LOJINHA -->
     </div>
 
-    <div>
-      <p>Siga-nos nas redes sociais!</p>
+    <footer class="footer">
+      <div class="footer-content">
+        <p>Siga-nos nas redes sociais!</p>
 
-      <div>
-        <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
-        <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
-        <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+        <div class="social-link">
+          <img src="https://image.flaticon.com/icons/png/512/25/25305.png" />
+          <img src="https://image.flaticon.com/icons/png/512/25/25425.png" />
+          <img src="https://image.flaticon.com/icons/png/512/8/8800.png" />
+        </div>
       </div>
-    </div>
+    </footer>
   </body>
 </html>
