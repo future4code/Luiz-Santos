@@ -56,6 +56,7 @@ class Post extends React.Component {
     numeroComentarios: 0,
     postSalvo: false,
     compartilhando: false,
+    listaComentarios: [],
   };
 
   onClickCurtida = () => {
@@ -118,10 +119,14 @@ class Post extends React.Component {
     });
   };
 
-  aoEnviarComentario = () => {
+  aoEnviarComentario = (comentario) => {
+    if (comentario === '') {
+      return;
+    }
     this.setState({
-      comentando: false,
+      listaComentarios: [...this.state.listaComentarios, comentario],
       numeroComentarios: this.state.numeroComentarios + 1,
+      comentando: false,
     });
   };
 
@@ -146,7 +151,10 @@ class Post extends React.Component {
 
     if (this.state.comentando) {
       componenteComentario = (
-        <SecaoComentario aoEnviar={this.aoEnviarComentario} />
+        <SecaoComentario
+          aoEnviar={this.aoEnviarComentario}
+          listaComentarios={this.state.listaComentarios}
+        />
       );
     }
 
