@@ -12,6 +12,15 @@ const InputComentario = styled.input`
   margin-right: 5px;
 `;
 
+const ListaComentarios = styled.div`
+  padding: 0 10px;
+  font-size: 14px;
+
+  p {
+    margin-bottom: 5px;
+  }
+`;
+
 export class SecaoComentario extends Component {
   state = {
     comentario: '',
@@ -25,14 +34,23 @@ export class SecaoComentario extends Component {
 
   render() {
     return (
-      <CommentContainer>
-        <InputComentario
-          placeholder={'Comentário'}
-          value={this.state.comentario}
-          onChange={this.onChangeComentario}
-        />
-        <button onClick={this.props.aoEnviar}>Enviar</button>
-      </CommentContainer>
+      <>
+        <CommentContainer>
+          <InputComentario
+            placeholder={'Comentário'}
+            value={this.state.comentario}
+            onChange={this.onChangeComentario}
+          />
+          <button onClick={() => this.props.aoEnviar(this.state.comentario)}>
+            Enviar
+          </button>
+        </CommentContainer>
+        <ListaComentarios>
+          {this.props.listaComentarios.map((comentario) => (
+            <p>{comentario}</p>
+          ))}
+        </ListaComentarios>
+      </>
     );
   }
 }
