@@ -1,0 +1,206 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2021-10-06T02:47:17.381Z",
+  "__export_source": "insomnia.desktop.app:v2021.5.1",
+  "resources": [
+    {
+      "_id": "req_e3917122452f4b62b1a0555a4fd2c4ab",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487459950,
+      "created": 1633487383414,
+      "url": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+      "name": "getAllPalylists",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "luiz-santos-banu"
+      },
+      "metaSortKey": -1633487383414,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "parentId": null,
+      "modified": 1633487351048,
+      "created": 1633487351048,
+      "name": "Labefy",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_2aa4a5e6e45e4ca9ac59a30392666e4e",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487568982,
+      "created": 1633487487573,
+      "url": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/search",
+      "name": "searchPlayslist",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_49f1a82853f44504ba16bac0c36d5971",
+          "name": "name",
+          "value": "luiz",
+          "description": "",
+          "disabled": false
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "luiz-santos-banu"
+      },
+      "metaSortKey": -1627254525386.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_fe50a1a803524a56bbf58c41c8cfed92",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487615426,
+      "created": 1633487588889,
+      "url": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/playlistId/tracks",
+      "name": "getPlaylistTracks",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "luiz-santos-banu"
+      },
+      "metaSortKey": -1624138096372.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_708417aaa1634cc9bad5d33b37914020",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633488353196,
+      "created": 1633487676379,
+      "url": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists",
+      "name": "createPlaylist",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"rap\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2d79d4eab109402391c841f961259820"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "luiz-santos-banu"
+      },
+      "metaSortKey": -1622579881865.875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_97741e30f35e4773b4a469172001c59f",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633488275459,
+      "created": 1633487753188,
+      "url": "https://us-central1-labenu-apis.cloudfunctions.net/labefy/playlists/3a13d4e3-6e79-4959-8a4d-9d553a29ec65/tracks",
+      "name": "addTrackToPlaylist",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"La Belle de Jour / Girassol\", \n  \"artist\": \"Alceu Valença\",\n  \"url\": \"https://www.youtube.com/watch?v=l-FxY25lYzY\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_2d79d4eab109402391c841f961259820"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "luiz-santos-banu"
+      },
+      "metaSortKey": -1621800774612.4375,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_8e16fb1b7117b82e229e2d6bef6f64ae17de0a7a",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487351071,
+      "created": 1633487351071,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1633487351071,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_8e16fb1b7117b82e229e2d6bef6f64ae17de0a7a",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487351073,
+      "created": 1633487351073,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "spc_5d22c443a418434b94ee45fdf0b05776",
+      "parentId": "wrk_f21a63fd55284c04a8d453cb2bf71558",
+      "modified": 1633487351066,
+      "created": 1633487351066,
+      "fileName": "Labefy",
+      "contents": "",
+      "contentType": "yaml",
+      "_type": "api_spec"
+    }
+  ]
+}
