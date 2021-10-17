@@ -17,11 +17,14 @@ export const PlayerWrapper = styled.div`
   @media (max-width: 960px) {
     position: fixed;
     bottom: 0;
-    left: 0;
     width: calc(100% - 17px);
     height: auto;
     padding: 20px 10px 0;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.5);
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 `;
 
