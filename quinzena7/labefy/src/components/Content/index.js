@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import {
-  AiFillPlaySquare,
-  AiFillPauseCircle,
-  AiFillDelete,
-} from 'react-icons/ai';
+import { AiFillDelete } from 'react-icons/ai';
 import { GiMusicalNotes } from 'react-icons/gi';
 import api from '../../services/api';
 
@@ -11,7 +7,7 @@ import capa from '../../img/playlist-capa.jpg';
 import * as S from './styles';
 import Player from '../Player';
 import Header from '../Header';
-// import capaMusica from '../../img/capa-musica.png';
+import MusicList from '../MusicList';
 const capaMusica = 'https://images3.alphacoders.com/172/172007.jpg';
 
 class Content extends Component {
@@ -73,6 +69,7 @@ class Content extends Component {
     this.setState({
       // listMusic: [],
       currentMusicIndex: 0,
+      isPlaying: false,
     });
   };
 
@@ -185,6 +182,7 @@ class Content extends Component {
   addTrackInPlaylist = async (event) => {
     event.preventDefault();
     const playlistId = this.state.currentPlaylist.id;
+    const playlistName = this.state.currentPlaylist.name;
     const body = {
       name: this.state.musicName,
       artist: this.state.artistName,
@@ -193,7 +191,15 @@ class Content extends Component {
     try {
       const response = await api.post(`/playlists/${playlistId}/tracks`, body);
 
-      console.log(response);
+      if (response.status === 200) {
+        this.setState({
+          musicName: '',
+          artistName: '',
+          musicUrl: '',
+        });
+
+        await this.getPlaylistTracks(playlistId, playlistName);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -390,78 +396,36 @@ class Content extends Component {
                   )}
                 </S.AddMusicContainer>
                 <S.ListMusic>
-                  {this.state.listMusic.map((music, index) => (
-                    <S.Music key={music.id}>
-                      <S.MusicDetails>
-                        <img src={capaMusica} alt='' />
-                        <div>
-                          <span> {music.name}</span>
-                          <span className='musica-artist'> {music.artist}</span>
-                        </div>
-                      </S.MusicDetails>
-
-                      <S.ControlsContainer>
-                        <S.PlayButton>
-                          {curentMusic !== music && (
-                            <AiFillPlaySquare
-                              color='#04d361'
-                              size={24}
-                              onClick={() =>
-                                this.playList(this.state.listMusic, index)
-                              }
-                            />
-                          )}
-                          {!this.state.isPlaying && curentMusic === music && (
-                            <AiFillPlaySquare
-                              color='#04d361'
-                              size={24}
-                              onClick={() =>
-                                this.playList(this.state.listMusic, index)
-                              }
-                            />
-                          )}
-                          {this.state.isPlaying && curentMusic === music && (
-                            <AiFillPauseCircle
-                              color='#04d361'
-                              size={24}
-                              onClick={() => this.togglePlay()}
-                            />
-                          )}
-                        </S.PlayButton>
-                        <S.DeleteMusicButton
-                          onClick={() =>
-                            this.deleteTrack(
-                              this.state.currentPlaylist.id,
-                              music.id
-                            )
-                          }
-                        >
-                          <AiFillDelete size={24} color='#808080' />
-                        </S.DeleteMusicButton>
-                      </S.ControlsContainer>
-                    </S.Music>
-                  ))}
+                  <MusicList
+                    curentMusic={curentMusic}
+                    currentPlaylist={this.state.currentPlaylist}
+                    isPlaying={this.state.isPlaying}
+                    listOfMusic={this.state.listMusic}
+                    playList={this.playList}
+                    togglePlay={this.togglePlay}
+                    deleteTrack={this.deleteTrack}
+                  />
                 </S.ListMusic>
               </S.ContentPlaylist>
             )}
           </S.SectionContainer>
         </main>
-        {/* {curentMusic && ( */}
-        <Player
-          music={curentMusic}
-          isPlaying={this.state.isPlaying}
-          onPlay={() => this.setPlayingState(true)}
-          onPause={() => this.setPlayingState(false)}
-          togglePlay={this.togglePlay}
-          playNext={this.playNext}
-          playPrevious={this.playPrevious}
-          handleMusicEnded={this.handleMusicEnded}
-          clearPlayingState={this.clearPlayingState}
-          hasNext={hasNext}
-          hasPrevious={hasPrevious}
-          playlistName={this.state.currentPlaylist?.name}
-        />
-        {/* )} */}
+        {curentMusic && (
+          <Player
+            music={curentMusic}
+            isPlaying={this.state.isPlaying}
+            onPlay={() => this.setPlayingState(true)}
+            onPause={() => this.setPlayingState(false)}
+            togglePlay={this.togglePlay}
+            playNext={this.playNext}
+            playPrevious={this.playPrevious}
+            handleMusicEnded={this.handleMusicEnded}
+            clearPlayingState={this.clearPlayingState}
+            hasNext={hasNext}
+            hasPrevious={hasPrevious}
+            playlistName={this.state.currentPlaylist?.name}
+          />
+        )}
       </S.Container>
     );
   }

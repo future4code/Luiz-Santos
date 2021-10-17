@@ -11,10 +11,6 @@ class Header extends Component {
       <S.ContainerHeader>
         <img src={logo} alt='Podcastr' />
         <p>O melhor pra você ouvir, sempre</p>
-
-        {/* <S.Notification>
-          <AiFillBell color='#eaf4fd' size={24} />
-        </S.Notification> */}
       </S.ContainerHeader>
     );
   }

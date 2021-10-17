@@ -1,10 +1,16 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
+  position: relative;
 
   main {
     flex: 1;
+  }
+
+  @media (max-width: 960px) {
+    flex-direction: column;
   }
 `;
 
@@ -16,6 +22,7 @@ export const SectionContainer = styled.section`
 `;
 
 export const FormContainer = styled.div`
+  width: 100%;
   height: calc(100vh - 200px);
   display: flex;
   flex-direction: column;
@@ -72,6 +79,14 @@ export const FormContainer = styled.div`
     background: none;
     border: 1px solid #04d361;
     border-radius: 10px;
+
+    @media (max-width: 600px) {
+      font-size: 14px;
+      padding: 0;
+      min-width: auto;
+      color: #04d361;
+      border: none;
+    }
   }
 `;
 
@@ -84,6 +99,10 @@ export const ContentHeader = styled.div`
 
 export const Title = styled.h2`
   font-size: 28px;
+
+  @media (max-width: 600px) {
+    font-size: 24px;
+  }
 `;
 
 export const CustomButton = styled.button`
@@ -101,19 +120,25 @@ export const CustomButton = styled.button`
   &:focus {
     background: #04d361;
   }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+    border: none;
+    padding: 0;
+    color: #04d361;
+  }
 `;
 
 export const PlaylistContainer = styled.div`
-  /* display: flex;
-  align-items: center; */
   display: grid;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  align-items: center;
   grid-gap: 20px;
 
-  /* background: red; */
-
-  @media (min-width: 1400px) {
-    grid-template-columns: repeat(6, minmax(200px, 1fr));
+  @media (max-width: 600px) {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    justify-items: center;
+    grid-gap: 30px;
   }
 `;
 
@@ -121,6 +146,10 @@ export const CardPlaylist = styled.div`
   width: 200px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+
+  @media (max-width: 600px) {
+    width: 250px;
+  }
 `;
 
 export const CardPlaylistImg = styled.img`
@@ -139,6 +168,10 @@ export const CardPlaylistImg = styled.img`
   &:hover {
     transform: scale(1.05);
   }
+
+  @media (max-width: 600px) {
+    max-width: 250px;
+  }
 `;
 
 export const ContainerTitle = styled.div`
@@ -150,6 +183,10 @@ export const ContainerTitle = styled.div`
 export const PlaylistTitle = styled.h3`
   font-size: 18px;
   text-align: center;
+
+  @media (max-width: 600px) {
+    font-size: 16px;
+  }
 `;
 
 export const ButtonDelete = styled.button`
@@ -164,6 +201,11 @@ export const ButtonDelete = styled.button`
 
   &:hover svg {
     fill: red;
+  }
+
+  @media (max-width: 600px) {
+    width: 20px;
+    height: 20px;
   }
 `;
 
@@ -198,6 +240,16 @@ export const PlaylistHeader = styled.div`
       background: #04d361;
     }
   }
+
+  @media (max-width: 600px) {
+    button {
+      font-size: 14px;
+      padding: 0;
+      min-width: auto;
+      color: #04d361;
+      border: none;
+    }
+  }
 `;
 
 export const TitlePlaylist = styled.h2`
@@ -218,7 +270,8 @@ export const CapaPlaylist = styled.div`
 export const AddMusicContainer = styled.div`
   margin-bottom: 40px;
   form {
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
   }
 `;
 
@@ -253,6 +306,10 @@ export const FormGroup = styled.div`
   &:nth-last-child(2) {
     margin-bottom: 40px;
   }
+
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
 `;
 
 export const BtnGroup = styled.div`
@@ -270,6 +327,10 @@ export const BtnGroup = styled.div`
     cursor: pointer;
     border-radius: 15px;
     color: #fff;
+
+    @media (max-width: 600px) {
+      font-size: 14px;
+    }
   }
 
   .btn-cancelar {
@@ -301,8 +362,14 @@ export const AddMusicButton = styled.div`
     color: #b0b0b0;
     cursor: pointer;
     padding: 8px;
+
+    @media (max-width: 600px) {
+      font-size: 14px;
+    }
   }
 `;
+
+// =========== Lista de musicas =============
 
 export const ListMusic = styled.div`
   width: 100%;
@@ -343,7 +410,6 @@ export const MusicDetails = styled.div`
 
     .musica-artist {
       font-size: 15px;
-      /* color: #afb2b1; */
       color: #04d361;
       font-style: italic;
       font-weight: 300;
@@ -354,6 +420,21 @@ export const MusicDetails = styled.div`
       &:hover {
         color: #04d361;
       }
+    }
+  }
+
+  @media (max-width: 600px) {
+    img {
+      width: 36px;
+      height: 36px;
+    }
+
+    .musica-artist {
+      display: none;
+    }
+
+    .musica-name {
+      font-size: 14px;
     }
   }
 `;
@@ -379,6 +460,13 @@ export const DeleteMusicButton = styled.button`
       fill: red;
     }
   }
+
+  @media (max-width: 600px) {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 
 export const PlayButton = styled.button`
@@ -386,6 +474,13 @@ export const PlayButton = styled.button`
   border: none;
 
   cursor: pointer;
+
+  @media (max-width: 600px) {
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
 `;
 // Player
 
