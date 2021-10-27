@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
 
 import api from '../../services/api';
+import Loading from '../Loading';
 
 import * as S from './styles';
 
 const MatchesList = () => {
   const [matchesList, setMatchesList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getMatches();
@@ -13,11 +15,15 @@ const MatchesList = () => {
 
   const getMatches = async () => {
     try {
+      setLoading(true);
       const response = await api.get('/luiz-santos/matches');
-
-      setMatchesList(response.data.matches);
+      if (response.status === 200) {
+        setMatchesList(response.data.matches);
+      }
+      setLoading(false);
     } catch (err) {
       alert('Ops! Ocorreu um erro\n' + err);
+      setLoading(false);
     }
   };
 
@@ -31,6 +37,8 @@ const MatchesList = () => {
       alert('Ops! Ocorreu um erro\n' + err);
     }
   };
+
+  if (loading) return <Loading />;
 
   return (
     <S.Container>
