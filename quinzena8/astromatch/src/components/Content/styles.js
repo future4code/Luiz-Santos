@@ -6,6 +6,10 @@ export const MainContainer = styled.main`
   border-radius: 0.5rem;
 
   width: 100%;
-  min-width: 45rem;
+  max-width: 45rem;
   height: 90%;
+
+  @media (max-width: 500px) {
+    max-width: 30rem;
+  }
 `;
