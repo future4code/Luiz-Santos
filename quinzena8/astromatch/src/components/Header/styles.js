@@ -43,14 +43,18 @@ export const HeaderButtonMatches = styled.button`
   cursor: pointer;
   transition: all 0.2s ease;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #757f9a;
 
   width: 3.5rem;
   height: 3.5rem;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
   }
 
   &:disabled {
@@ -58,7 +62,7 @@ export const HeaderButtonMatches = styled.button`
   }
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 70%;
+    height: 70%;
   }
 `;

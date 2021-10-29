@@ -25,6 +25,7 @@ const Header = ({
           disabled={isActive}
         >
           <img src={iconTwoHearts} alt='Two Hearts' />
+          Matches
         </S.HeaderButtonMatches>
       )}
     </S.HeaderContainer>
