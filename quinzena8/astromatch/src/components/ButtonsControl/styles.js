@@ -53,6 +53,8 @@ export const CustomButton = styled.button`
     transition: 0.5s;
     background-size: 200% auto;
     box-shadow: 0 0 20px #eee;
+    position: relative;
+    margin-top: -1.5rem;
 
     img {
       height: 3.2rem;
