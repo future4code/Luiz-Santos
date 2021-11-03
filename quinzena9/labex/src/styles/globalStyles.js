@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.6rem;
     background: url(${bodyImg}) no-repeat center center ;
     background-size: cover;
+    color: #fff;
   }
 `;
 
