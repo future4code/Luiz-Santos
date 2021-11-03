@@ -1,12 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import logoImg from '../../img/logo.svg';
-import {
-  HeaderContainer,
-  HeaderContent,
-  HeaderMenu,
-  HeaderMenuButton,
-} from './styles';
+import { HeaderContainer, HeaderContent, HeaderMenu } from './styles';
 
 export const Header = () => {
   return (
@@ -16,24 +12,24 @@ export const Header = () => {
         <HeaderMenu>
           <ul>
             <li>
-              <a href='/'>
+              <Link to='/'>
                 <span> 00</span> Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/list-trips'>
                 <span> 01</span> Viagens
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/aplication-form'>
                 <span> 02</span> Inscreva-se
-              </a>
+              </Link>
             </li>
             <li>
-              <a href='/'>
+              <Link to='/login'>
                 <span> 03</span> Login
-              </a>
+              </Link>
             </li>
           </ul>
         </HeaderMenu>

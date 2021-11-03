@@ -1,12 +1,17 @@
+import { BrowserRouter as Router } from 'react-router-dom';
+
 import { Header } from './components/Header';
+import Routes from './routes';
 import GlobalStyle from './styles/globalStyles';
 
 function App() {
   return (
     <>
-      <GlobalStyle />
-      <Header />
-      <h1>Labex</h1>
+      <Router>
+        <GlobalStyle />
+        <Header />
+        <Routes />
+      </Router>
     </>
   );
 }
