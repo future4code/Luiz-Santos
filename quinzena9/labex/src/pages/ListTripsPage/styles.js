@@ -1,7 +1,18 @@
 import styled from 'styled-components';
+import backgroundImg from '../../img/background2.png';
 
-export const ListTripContainer = styled.div`
-  padding-top: 7.6rem;
+export const ListTripContainer = styled.main`
+  background: red;
+  min-height: calc(100vh - 9.6rem);
+  background: url(${backgroundImg}) no-repeat center center;
+  background-size: cover;
+`;
+
+export const ListTripContent = styled.section`
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 7.6rem 2rem 0;
 `;
 
 export const ListTripNavigation = styled.div`

@@ -1,13 +1,26 @@
 import styled from 'styled-components';
+import backgroundImg from '../../img/capa.png';
 
-export const HomeContainer = styled.div`
-  height: calc(100vh - 9.6rem);
+export const HomeContainer = styled.main`
+  min-height: calc(100vh - 9.6rem);
+  background: url(${backgroundImg}) no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const HomeContent = styled.section`
+  width: 100%;
+  max-width: 110rem;
+  margin: 0 auto;
+  padding: 0 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const HomeContent = styled.div`
+export const HomeContentInfo = styled.div`
   max-width: 58rem;
 
   h5 {

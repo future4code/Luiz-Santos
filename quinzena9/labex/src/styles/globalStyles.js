@@ -21,18 +21,19 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-family: 'Barlow', sans-serif;
     font-size: 1.6rem;
-    background: url(${bodyImg}) no-repeat center center ;
+    background:  #0B0D17;
+    /* background: url(${bodyImg}) no-repeat center center ; */
     background-size: cover;
     color: #fff;
   }
 
-  main {
+  /* main {
     width: 100%;
     max-width: 110rem;
     margin: 0 auto;
     height: 100%;
     padding: 0 2rem;
-  }
+  } */
 `;
 
 export default GlobalStyle;
