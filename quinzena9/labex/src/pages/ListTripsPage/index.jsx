@@ -14,8 +14,6 @@ export default function ListTripsPage() {
 
   const trip = data?.trips?.find((item) => item.name === selectTrip);
 
-  console.log(selectTrip);
-
   if (isLoading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;
   return (
@@ -27,7 +25,9 @@ export default function ListTripsPage() {
             value={selectTrip}
             onChange={(event) => setSelectTrip(event.target.value)}
           >
-            <option value='Selecione'>Selecione</option>
+            <option value='' disabled>
+              Selecione
+            </option>
 
             {data?.trips?.map((item) => (
               <option key={item.id} value={item.name}>

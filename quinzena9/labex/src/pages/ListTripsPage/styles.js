@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import backgroundImg from '../../img/background2.png';
 
 export const ListTripContainer = styled.main`
-  background: red;
   min-height: calc(100vh - 9.6rem);
   background: url(${backgroundImg}) no-repeat center center;
   background-size: cover;

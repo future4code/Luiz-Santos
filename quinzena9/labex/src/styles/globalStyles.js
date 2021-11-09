@@ -26,14 +26,6 @@ const GlobalStyle = createGlobalStyle`
     background-size: cover;
     color: #fff;
   }
-
-  /* main {
-    width: 100%;
-    max-width: 110rem;
-    margin: 0 auto;
-    height: 100%;
-    padding: 0 2rem;
-  } */
 `;
 
 export default GlobalStyle;
