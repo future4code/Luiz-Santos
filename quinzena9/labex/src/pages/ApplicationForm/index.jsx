@@ -5,6 +5,7 @@ import api from '../../services/api';
 
 import { Input } from '../../components/Input';
 import { Container, Content, FormContainer, FormGroupSelect } from './styles';
+import { Header } from '../../components/Header';
 
 export default function AplicationForm() {
   const [name, setName] = useState('');
@@ -69,75 +70,78 @@ export default function AplicationForm() {
   };
 
   return (
-    <Container>
-      <Content>
-        <h5>Inscreva-se para uma viagem</h5>
+    <>
+      <Header />
+      <Container>
+        <Content>
+          <h5>Inscreva-se para uma viagem</h5>
 
-        <FormContainer onSubmit={handleSubmit}>
-          <Input
-            name='name'
-            label='Nome'
-            value={name}
-            setValue={setName}
-            required
-          />
-          <Input
-            name='age'
-            label='Idade'
-            value={age}
-            setValue={setAge}
-            required
-          />
-          <Input
-            name='profession'
-            label='Profissão'
-            value={profession}
-            setValue={setProfession}
-            required
-          />
-          <Input
-            name='applicationText'
-            label='Texto de Candidatura'
-            value={applicationText}
-            setValue={setApplicationText}
-            required
-          />
+          <FormContainer onSubmit={handleSubmit}>
+            <Input
+              name='name'
+              label='Nome'
+              value={name}
+              setValue={setName}
+              required
+            />
+            <Input
+              name='age'
+              label='Idade'
+              value={age}
+              setValue={setAge}
+              required
+            />
+            <Input
+              name='profession'
+              label='Profissão'
+              value={profession}
+              setValue={setProfession}
+              required
+            />
+            <Input
+              name='applicationText'
+              label='Texto de Candidatura'
+              value={applicationText}
+              setValue={setApplicationText}
+              required
+            />
 
-          <FormGroupSelect>
-            <select
-              value={tripId}
-              onChange={(event) => setTripId(event.target.value)}
-              disabled={isLoading}
-            >
-              <option value='' disabled>
-                Selecione uma viagem
-              </option>
-              {data?.trips?.map((trip) => (
-                <option key={trip.id} value={trip.id}>
-                  {trip.name}
+            <FormGroupSelect>
+              <select
+                value={tripId}
+                onChange={(event) => setTripId(event.target.value)}
+                disabled={isLoading}
+              >
+                <option value='' disabled>
+                  Selecione uma viagem
                 </option>
-              ))}
-            </select>
-          </FormGroupSelect>
-          <FormGroupSelect>
-            <select
-              value={country}
-              onChange={(event) => setCountry(event.target.value)}
-            >
-              <option value='' disabled>
-                Selecione um país
-              </option>
-              {countriesData?.map((country, index) => (
-                <option key={index} value={country.name}>
-                  {country.name}
+                {data?.trips?.map((trip) => (
+                  <option key={trip.id} value={trip.id}>
+                    {trip.name}
+                  </option>
+                ))}
+              </select>
+            </FormGroupSelect>
+            <FormGroupSelect>
+              <select
+                value={country}
+                onChange={(event) => setCountry(event.target.value)}
+              >
+                <option value='' disabled>
+                  Selecione um país
                 </option>
-              ))}
-            </select>
-          </FormGroupSelect>
+                {countriesData?.map((country, index) => (
+                  <option key={index} value={country.name}>
+                    {country.name}
+                  </option>
+                ))}
+              </select>
+            </FormGroupSelect>
 
-          <button type='submit'>Enviar</button>
-        </FormContainer>
-      </Content>
-    </Container>
+            <button type='submit'>Enviar</button>
+          </FormContainer>
+        </Content>
+      </Container>
+    </>
   );
 }

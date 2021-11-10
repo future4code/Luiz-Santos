@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Header } from '../../components/Header';
 import { TripItem } from '../../components/TripItem';
 import { useRequestData } from '../../hooks/useRequestData';
 
@@ -17,27 +18,30 @@ export default function ListTripsPage() {
   if (isLoading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;
   return (
-    <ListTripContainer>
-      <ListTripContent>
-        <ListTripNavigation>
-          <h5>Escolha seu destino</h5>
-          <select
-            value={selectTrip}
-            onChange={(event) => setSelectTrip(event.target.value)}
-          >
-            <option value='' disabled>
-              Selecione
-            </option>
-
-            {data?.trips?.map((item) => (
-              <option key={item.id} value={item.name}>
-                {item.name}
+    <>
+      <Header />
+      <ListTripContainer>
+        <ListTripContent>
+          <ListTripNavigation>
+            <h5>Escolha seu destino</h5>
+            <select
+              value={selectTrip}
+              onChange={(event) => setSelectTrip(event.target.value)}
+            >
+              <option value='' disabled>
+                Selecione
               </option>
-            ))}
-          </select>
-        </ListTripNavigation>
-        <TripItem trip={trip} />
-      </ListTripContent>
-    </ListTripContainer>
+
+              {data?.trips?.map((item) => (
+                <option key={item.id} value={item.name}>
+                  {item.name}
+                </option>
+              ))}
+            </select>
+          </ListTripNavigation>
+          <TripItem trip={trip} />
+        </ListTripContent>
+      </ListTripContainer>
+    </>
   );
 }

@@ -7,21 +7,31 @@ import AplicationForm from './pages/ApplicationForm';
 import Login from './pages/Login';
 
 import GlobalStyle from './styles/globalStyles';
+import PrivateRoute from './routes/PrivateRoute';
+import { Dashboard } from './pages/Dashboard';
 
 function App() {
   return (
     <>
       <Router>
         <GlobalStyle />
-        <Header />
+
         <Routes>
           <Route exact path='/' element={<Home />} />
 
           <Route path='/list-trips' element={<ListTripsPage />} />
 
           <Route path='/aplication-form' element={<AplicationForm />} />
-
           <Route path='/login' element={<Login />} />
+
+          <Route
+            path='dashboard'
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </Router>
     </>

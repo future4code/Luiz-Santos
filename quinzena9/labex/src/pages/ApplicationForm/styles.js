@@ -46,7 +46,7 @@ export const FormContainer = styled.form`
     }
 
     &:disabled {
-      background: #989db9;
+      background: #bcbcbc;
       cursor: wait;
     }
   }
