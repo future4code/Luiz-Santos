@@ -23,6 +23,7 @@ export const useRequestData = (url, initialState) => {
 
   return {
     data,
+    setData,
     isLoading,
     error,
   };

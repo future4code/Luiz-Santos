@@ -33,7 +33,7 @@ export const HeaderMenu = styled.nav`
     gap: 4.8rem;
 
     list-style: none;
-    font-family: Barlow Condensed;
+    font-family: 'Barlow Condensed';
     font-style: normal;
     font-weight: normal;
     font-size: 1.6rem;
