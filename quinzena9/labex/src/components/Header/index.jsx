@@ -5,6 +5,8 @@ import logoImg from '../../img/logo.svg';
 import { HeaderContainer, HeaderContent, HeaderMenu } from './styles';
 
 export const Header = () => {
+  const token = localStorage.getItem('token');
+
   return (
     <HeaderContainer>
       <HeaderContent>
@@ -26,11 +28,19 @@ export const Header = () => {
                 <span> 02</span> Inscreva-se
               </Link>
             </li>
-            <li>
-              <Link to='/login'>
-                <span> 03</span> Login
-              </Link>
-            </li>
+            {!token ? (
+              <li>
+                <Link to='/login'>
+                  <span> 03</span> Login
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <Link to='/dashboard'>
+                  <span> 03</span> Dashboard
+                </Link>
+              </li>
+            )}
           </ul>
         </HeaderMenu>
       </HeaderContent>

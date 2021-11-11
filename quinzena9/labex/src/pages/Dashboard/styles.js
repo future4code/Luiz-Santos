@@ -1,19 +1,49 @@
 import styled from 'styled-components';
 
+export const Wrapper = styled.div`
+  height: 100vh;
+  width: 100%;
+  /* overflow-y: scroll; */
+`;
+
 export const HeaderDashboard = styled.header`
   height: 7rem;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(81.5485px);
   padding: 0 4rem;
-
+  border-bottom: 1px solid #1e1f29;
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  a {
+    img {
+      width: 3.2rem;
+      height: 3.2rem;
+    }
+  }
+
+  button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+
+    img {
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+  }
 `;
 
-export const ContainerDashboard = styled.main`
+export const ContainerDashboard = styled.div`
   height: calc(100vh - 7rem);
   display: flex;
+  /* overflow-y: scroll; */
 `;
 
 export const Sidebar = styled.nav`
@@ -80,4 +110,5 @@ export const ContentDashboard = styled.section`
   flex: 1;
   padding: 4rem;
   background: #1e1f29;
+  overflow-y: scroll;
 `;

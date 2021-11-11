@@ -23,6 +23,8 @@ export const ListTripsContent = styled.div`
       text-align: left;
       line-height: 1.5rem;
       text-transform: uppercase;
+      font-weight: 500;
+      color: #d0d6f9;
     }
 
     td {

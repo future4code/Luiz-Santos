@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Link, Routes, Route } from 'react-router-dom';
 import { CreateTripForm } from '../../components/CreateTripForm';
 import { ListTrips } from '../../components/ListTrips';
@@ -8,22 +9,39 @@ import {
   ContentDashboard,
   HeaderDashboard,
   Sidebar,
+  Wrapper,
 } from './styles';
 
+import logoImg from '../../img/logo.svg';
+import iconSignOut from '../../img/sign-out.svg';
+
 const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    localStorage.removeItem('token');
+    navigate('/', { replace: true });
+  };
+
   return (
-    <>
+    <Wrapper>
       <HeaderDashboard>
-        <a href='/'>Logo</a>
+        <Link to='/dashboard'>
+          <img src={logoImg} alt='Logo' />
+        </Link>
 
         <div>
-          <span>Foto admin</span>
-          <button>Sair</button>
+          <button onClick={logout}>
+            Sair <img src={iconSignOut} alt='Icone Signout' />
+          </button>
         </div>
       </HeaderDashboard>
       <ContainerDashboard>
         <Sidebar>
           <ul>
+            <li>
+              <Link to='/'>Home</Link>
+            </li>
             <li>
               <Link to='/dashboard'>Dashboard</Link>
             </li>
@@ -42,7 +60,7 @@ const Dashboard = () => {
           </Routes>
         </ContentDashboard>
       </ContainerDashboard>
-    </>
+    </Wrapper>
   );
 };
 
