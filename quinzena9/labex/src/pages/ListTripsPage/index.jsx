@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
 import { TripItem } from '../../components/TripItem';
-import { useRequestData } from '../../hooks/useRequestData';
+import { useFetch } from '../../hooks/useFetch';
 
 import {
   ListTripContainer,
@@ -10,10 +10,24 @@ import {
 } from './styles';
 
 export default function ListTripsPage() {
-  const { data, error, isLoading } = useRequestData('/trips', []);
+  const { data, error, isLoading, request } = useFetch();
   const [selectTrip, setSelectTrip] = useState('');
 
   const trip = data?.trips?.find((item) => item.name === selectTrip);
+
+  useEffect(() => {
+    async function getTrips() {
+      await request({
+        url: '/trips',
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    }
+
+    getTrips();
+  }, [request]);
 
   if (isLoading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;

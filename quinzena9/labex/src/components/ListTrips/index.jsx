@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { Link } from 'react-router-dom';
-import { useRequestData } from '../../hooks/useRequestData';
 import { ListTripsContainer, ListTripsContent } from './styles';
 
 import iconTrashImg from '../../img/trash.svg';
 import api from '../../services/api';
+import { useFetch } from '../../hooks/useFetch';
 
 export const ListTrips = () => {
-  const { data, setData, isLoading, error } = useRequestData('/trips', []);
+  const { data, isLoading, error } = useFetch('/trips');
 
   const handleDeleteTrip = useCallback(async (tripId) => {
     const token = localStorage.getItem('token');

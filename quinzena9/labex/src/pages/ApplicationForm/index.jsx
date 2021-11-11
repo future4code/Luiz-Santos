@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useRequestData } from '../../hooks/useRequestData';
 import api from '../../services/api';
 
 import { Input } from '../../components/Input';
 import { Container, Content, FormContainer, FormGroupSelect } from './styles';
 import { Header } from '../../components/Header';
+import { useFetch } from '../../hooks/useFetch';
 
 export default function AplicationForm() {
   const [name, setName] = useState('');
@@ -16,15 +16,12 @@ export default function AplicationForm() {
   const [country, setCountry] = useState('');
   const [countriesData, setCountriesData] = useState([]);
 
-  const { data, isLoading } = useRequestData('/trips', []);
+  const { data, isLoading, error, request } = useFetch();
 
   const getCountries = async () => {
     try {
       const response = await axios.get('https://restcountries.com/v3.1/all');
 
-      if (!response) {
-        throw new Error('Ops! Ocorreu um erro');
-      }
       const coutriesNames = response.data
         .map((country) => {
           return { name: country.name.common };
@@ -33,14 +30,20 @@ export default function AplicationForm() {
 
       setCountriesData(coutriesNames);
     } catch (error) {
-      console.log(error);
       alert(error);
     }
   };
 
   useEffect(() => {
+    async function getTrips() {
+      await request({
+        url: '/trips',
+        method: 'GET',
+      });
+    }
+    getTrips();
     getCountries();
-  }, []);
+  }, [request]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -68,6 +71,8 @@ export default function AplicationForm() {
       alert('Algo deu errado, tente novamente \n' + error);
     }
   };
+
+  if (error) return <p>{error}</p>;
 
   return (
     <>

@@ -25,23 +25,20 @@ export const TripDetails = styled.div`
     margin-bottom: 1.4rem;
   }
 
-  h5 {
-    font-family: 'Barlow Condensed';
+  h4 {
+    font-family: 'Bellefair';
     font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-
-    letter-spacing: 4.725px;
+    font-size: 32px;
+    line-height: 37px;
     text-transform: uppercase;
-
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   p {
     font-size: 1.8rem;
     line-height: 3.2rem;
     color: #d0d6f9;
-    margin-bottom: 5.4rem;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -50,7 +47,7 @@ export const TripDetailsDate = styled.div`
   padding: 2.8rem 0;
   display: flex;
   align-items: center;
-  gap: 8rem;
+  justify-content: space-between;
 
   & > div {
     span {

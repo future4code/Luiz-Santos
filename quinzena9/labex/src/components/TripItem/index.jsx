@@ -21,10 +21,14 @@ export const TripItem = ({ trip }) => {
         <img src={luaImg} alt='Imagem da lua' />
       )}
       <TripDetails>
-        <h2>{trip?.planet}</h2>
-        <h5>{trip?.name}</h5>
+        {/* <h2>{trip?.planet}</h2> */}
+        <h4>{trip?.name}</h4>
         <p>{trip?.description}</p>
         <TripDetailsDate>
+          <div>
+            <span>Destino</span>
+            <h6>{trip?.planet}</h6>
+          </div>
           <div>
             <span>Data</span>
             <h6>{trip?.date}</h6>
