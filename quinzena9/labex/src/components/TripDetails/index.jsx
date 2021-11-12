@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useFetch } from '../../hooks/useFetch';
+import { Loading } from '../Loading';
 import { Table } from '../Table';
 import {
   ListCanditadesContainer,
@@ -64,7 +65,7 @@ export const TripDetails = () => {
     }
   };
 
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) return <Loading />;
   if (error) return <p>{error}</p>;
 
   return (

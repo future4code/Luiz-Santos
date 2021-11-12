@@ -65,7 +65,7 @@ export const TripDetailsDate = styled.div`
     h6 {
       font-family: 'Bellefair';
       font-weight: normal;
-      font-size: 2.8rem;
+      font-size: 2.2rem;
       line-height: 3.2rem;
       text-transform: uppercase;
     }

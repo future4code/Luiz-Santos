@@ -5,6 +5,7 @@ import { ListTripsContainer, ListTripsContent } from './styles';
 import iconTrashImg from '../../img/trash.svg';
 import api from '../../services/api';
 import { useFetch } from '../../hooks/useFetch';
+import { Loading } from '../Loading';
 
 export const ListTrips = () => {
   const { isLoading, error, request } = useFetch();
@@ -47,7 +48,7 @@ export const ListTrips = () => {
     }
   };
 
-  if (isLoading) return <p>Carregando...</p>;
+  if (isLoading) return <Loading />;
   if (error) return <p>{error}</p>;
 
   return (

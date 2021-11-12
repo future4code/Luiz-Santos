@@ -133,7 +133,9 @@ export default function AplicationForm() {
               </select>
             </FormGroupSelect>
 
-            <button type='submit'>Enviar</button>
+            <button type='submit' disabled={isLoading}>
+              Enviar
+            </button>
           </FormContainer>
         </Content>
       </Container>

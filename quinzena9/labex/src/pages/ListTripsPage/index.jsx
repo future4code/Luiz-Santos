@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Header } from '../../components/Header';
+import { Loading } from '../../components/Loading';
 import { TripItem } from '../../components/TripItem';
 import { useFetch } from '../../hooks/useFetch';
 
@@ -29,7 +30,6 @@ export default function ListTripsPage() {
     getTrips();
   }, [request]);
 
-  if (isLoading) return <p>Carregando...</p>;
   if (error) return <p>{error}</p>;
   return (
     <>
@@ -53,6 +53,9 @@ export default function ListTripsPage() {
               ))}
             </select>
           </ListTripNavigation>
+
+          {isLoading && <Loading />}
+
           <TripItem trip={trip} />
         </ListTripContent>
       </ListTripContainer>
