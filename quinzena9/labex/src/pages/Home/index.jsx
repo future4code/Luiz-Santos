@@ -18,10 +18,8 @@ export default function Home() {
             <h5>Então você já quer viajar para o</h5>
             <h1>Espaço</h1>
             <p>
-              Vamos encarar. se você quiser ir para o espaço, você pode muito
-              bem ir genuinamente para o espaço sideral e não pairar tipo de na
-              borda dele. Bem, sente-se, e relaxe porque nós vamos dar-lhe uma
-              verdadeira experiência fora deste mundo!
+              Vem com a gente! Nós vamos lhe dar uma verdadeira experiência fora
+              deste mundo.
             </p>
           </HomeContentInfo>
 

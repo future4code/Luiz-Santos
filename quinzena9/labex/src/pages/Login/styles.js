@@ -19,12 +19,8 @@ export const LoginContent = styled.div`
   justify-content: center;
 
   h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
     font-size: 2.8rem;
     line-height: 3.4rem;
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
   }
 
   p {

@@ -3,6 +3,7 @@ import backgroundImg from '../../img/backround3.png';
 
 export const Container = styled.main`
   min-height: calc(100vh - 9.6rem);
+
   /* background: url(${backgroundImg}) no-repeat center center;
   background-size: cover; */
 `;
@@ -13,24 +14,28 @@ export const Content = styled.section`
   margin: 0 auto;
   padding: 7.6rem 2rem 0;
 
-  h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
+  @media (max-width: 500px) {
+    h5 {
+      font-size: 2rem;
+      line-height: 24px;
+      letter-spacing: 3.375px;
+    }
   }
 `;
 
 export const FormContainer = styled.form`
-  padding: 7.6rem 0;
+  padding: 6rem 0;
   width: 100%;
   max-width: 60rem;
+  max-width: 45rem;
 
   button {
-    width: 18rem;
+    width: 100%;
     padding: 1.5rem 2rem;
     font-size: 1.6rem;
     font-family: inherit;
@@ -48,6 +53,10 @@ export const FormContainer = styled.form`
     &:disabled {
       background: #bcbcbc;
       cursor: wait;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.4rem;
     }
   }
 `;
@@ -77,5 +86,19 @@ export const FormGroupSelect = styled.div`
   option {
     background: #161620;
     font-size: 1.8rem;
+  }
+
+  @media (max-width: 960px) {
+    select,
+    option {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    select,
+    option {
+      font-size: 1.4rem;
+    }
   }
 `;

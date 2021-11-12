@@ -19,22 +19,35 @@ export const ListTripNavigation = styled.div`
   align-items: center;
   gap: 8rem;
 
-  h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
-  }
-
   select {
-    width: 23rem;
-    height: 3.4rem;
+    padding: 1rem 0.8rem;
     background: #383b4b;
     border: none;
     color: #fff;
     font-size: 1.5rem;
+  }
+
+  @media (max-width: 960px) {
+    text-align: center;
+    justify-content: center;
+
+    select {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 2.4rem;
+
+    select {
+      padding: 0.5rem;
+    }
+
+    h5 {
+      font-size: 2rem;
+      line-height: 24px;
+      letter-spacing: 3.375px;
+    }
   }
 `;

@@ -21,7 +21,6 @@ export const TripItem = ({ trip }) => {
         <img src={luaImg} alt='Imagem da lua' />
       )}
       <TripDetails>
-        {/* <h2>{trip?.planet}</h2> */}
         <h4>{trip?.name}</h4>
         <p>{trip?.description}</p>
         <TripDetailsDate>

@@ -43,7 +43,7 @@ export default function ListTripsPage() {
               onChange={(event) => setSelectTrip(event.target.value)}
             >
               <option value='' disabled>
-                Selecione
+                Selecione uma viagem
               </option>
 
               {data?.trips?.map((item) => (

@@ -1,9 +1,13 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+import iconMenuHamburguer from '../../img/menu-hamburguer.svg';
+import iconCloseMenu from '../../img/close-menu.svg';
 
 export const HeaderContainer = styled.header`
   height: 9.6rem;
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(81.5485px);
+  position: relative;
 `;
 
 export const HeaderContent = styled.div`
@@ -23,10 +27,6 @@ export const HeaderContent = styled.div`
 `;
 
 export const HeaderMenu = styled.nav`
-  display: flex;
-  align-items: center;
-  gap: 4.8rem;
-
   ul {
     display: flex;
     align-items: center;
@@ -70,5 +70,58 @@ export const HeaderMenu = styled.nav`
         font-weight: bold;
       }
     }
+  }
+
+  @media (max-width: 768px) {
+    ${({ isOpen }) => css`
+      display: ${isOpen ? 'block' : 'none'};
+    `}
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25.4rem;
+    height: 100vh;
+    z-index: 1000;
+    padding: 11.8rem 0 4rem;
+    background: rgba(22, 22, 32, 0.97);
+    backdrop-filter: blur(81.5485px);
+    --webkit-backdrop-filter: blur(81.5485px);
+
+    ul {
+      flex-direction: column;
+      gap: 3.2rem;
+      align-items: flex-start;
+      padding-left: 3.2rem;
+
+      li {
+        width: 100%;
+
+        a {
+          &::after {
+            width: 3px;
+            height: 100%;
+            left: auto;
+            bottom: 0;
+          }
+        }
+      }
+    }
+  }
+`;
+
+export const MenuButton = styled.button`
+  display: none;
+  ${({ isOpen }) => css`
+    background: url(${!isOpen ? iconMenuHamburguer : iconCloseMenu}) no-repeat
+      center center;
+    z-index: ${isOpen ? 2000 : 'initial'};
+  `}
+  width: 2.4rem;
+  height: 2.1rem;
+  border: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    display: block;
   }
 `;

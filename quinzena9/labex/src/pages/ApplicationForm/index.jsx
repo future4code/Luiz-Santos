@@ -103,6 +103,8 @@ export default function AplicationForm() {
               label='Idade'
               value={form.age}
               onChange={onChange}
+              type='number'
+              min='18'
               required
             />
             <Input

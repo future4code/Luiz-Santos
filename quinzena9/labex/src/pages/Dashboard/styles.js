@@ -38,12 +38,19 @@ export const HeaderDashboard = styled.header`
       height: 2.4rem;
     }
   }
+
+  @media (max-width: 600px) {
+    padding: 0 2rem;
+  }
 `;
 
 export const ContainerDashboard = styled.div`
   height: calc(100vh - 7rem);
   display: flex;
-  /* overflow-y: scroll; */
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+  }
 `;
 
 export const Sidebar = styled.nav`
@@ -53,7 +60,6 @@ export const Sidebar = styled.nav`
   flex-direction: column;
   justify-content: space-between;
   background: rgba(255, 255, 255, 0.04);
-  /* backdrop-filter: blur(81.5485px); */
 
   ul {
     list-style: none;
@@ -102,7 +108,30 @@ export const Sidebar = styled.nav`
 
   p {
     font-size: 1.2rem;
+    line-height: 1.4;
     color: #d0d6f9;
+  }
+
+  @media (max-width: 960px) {
+    padding: 1rem;
+    flex: 0 0 6rem;
+
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.4rem;
+
+      li {
+        &:not(:first-child) {
+          margin-top: 0;
+        }
+      }
+    }
+
+    p {
+      display: none;
+    }
   }
 `;
 
@@ -111,4 +140,8 @@ export const ContentDashboard = styled.section`
   padding: 4rem;
   background: #1e1f29;
   overflow-y: scroll;
+
+  @media (max-width: 600px) {
+    padding: 4rem 2rem;
+  }
 `;

@@ -1,28 +1,19 @@
 import styled from 'styled-components';
 
-export const TripDetailsContainer = styled.section`
-  h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
-  }
-`;
+export const TripDetailsContainer = styled.section``;
 
 export const TripInfo = styled.div`
   padding: 4rem 0;
 
-  p {
-    font-size: 1.6rem;
-    line-height: 3.2rem;
+  span {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #d0d6f9;
+  }
 
+  @media (max-width: 600px) {
     span {
-      font-size: 2rem;
-      font-weight: 500;
-      color: #d0d6f9;
+      font-size: 1.8rem;
     }
   }
 `;
@@ -35,6 +26,7 @@ export const ListCanditadesContainer = styled.div`
   }
 
   button {
+    width: 100%;
     padding: 0.5rem 2rem;
     font-size: 1.6rem;
     font-family: inherit;

@@ -26,4 +26,30 @@ export const TableContainer = styled.table`
       text-align: center;
     }
   }
+
+  @media (max-width: 768px) {
+    th {
+      font-size: 1.5rem;
+    }
+
+    td {
+      font-size: 1.4rem;
+    }
+
+    th,
+    td {
+      &:nth-child(1) {
+        display: none;
+      }
+      &:nth-child(3) {
+        display: none;
+      }
+      &:nth-child(4) {
+        display: none;
+      }
+      /* &:nth-child(5) {
+          display: none;
+        } */
+    }
+  }
 `;

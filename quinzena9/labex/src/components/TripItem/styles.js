@@ -11,34 +11,38 @@ export const TripContent = styled.div`
     max-width: 44.5rem;
     height: 44.5rem;
   }
+
+  @media (max-width: 960px) {
+    flex-direction: column;
+    gap: 5rem;
+
+    img {
+      max-width: 30rem;
+      height: 30rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    img {
+      max-width: 17rem;
+      height: 17rem;
+    }
+  }
 `;
 
 export const TripDetails = styled.div`
   max-width: 44.5rem;
 
-  h2 {
-    font-family: 'Bellefair';
-    font-weight: normal;
-    font-size: 10rem;
-    line-height: 11.5rem;
-    text-transform: uppercase;
-    margin-bottom: 1.4rem;
-  }
-
   h4 {
-    font-family: 'Bellefair';
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 37px;
-    text-transform: uppercase;
     margin-bottom: 3rem;
   }
 
   p {
-    font-size: 1.8rem;
-    line-height: 3.2rem;
     color: #d0d6f9;
     margin-bottom: 2rem;
+  }
+  @media (max-width: 960px) {
+    text-align: center;
   }
 `;
 
@@ -68,6 +72,15 @@ export const TripDetailsDate = styled.div`
       font-size: 2.2rem;
       line-height: 3.2rem;
       text-transform: uppercase;
+
+      @media (max-width: 960px) {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 500px) {
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+      }
     }
   }
 `;

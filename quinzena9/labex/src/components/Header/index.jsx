@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import logoImg from '../../img/logo.svg';
-import { HeaderContainer, HeaderContent, HeaderMenu } from './styles';
+import {
+  HeaderContainer,
+  HeaderContent,
+  HeaderMenu,
+  MenuButton,
+} from './styles';
 
 export const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const token = localStorage.getItem('token');
 
   return (
     <HeaderContainer>
       <HeaderContent>
         <img src={logoImg} alt='Logo' />
-        <HeaderMenu>
+        <HeaderMenu isOpen={isOpen}>
           <ul>
             <li>
               <Link to='/'>
@@ -43,6 +50,10 @@ export const Header = () => {
             )}
           </ul>
         </HeaderMenu>
+        <MenuButton
+          isOpen={isOpen}
+          onClick={() => setIsOpen(!isOpen)}
+        ></MenuButton>
       </HeaderContent>
     </HeaderContainer>
   );

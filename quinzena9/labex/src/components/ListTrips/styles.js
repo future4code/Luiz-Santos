@@ -1,16 +1,6 @@
 import styled from 'styled-components';
 
-export const ListTripsContainer = styled.section`
-  h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
-  }
-`;
+export const ListTripsContainer = styled.section``;
 
 export const ListTripsContent = styled.div`
   padding: 4rem 0;
@@ -51,6 +41,34 @@ export const ListTripsContent = styled.div`
     img {
       width: 2.4rem;
       height: 2.4rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    table {
+      th {
+        font-size: 1.5rem;
+      }
+
+      td {
+        font-size: 1.4rem;
+      }
+
+      th,
+      td {
+        &:nth-child(1) {
+          display: none;
+        }
+        &:nth-child(3) {
+          display: none;
+        }
+        &:nth-child(4) {
+          display: none;
+        }
+        &:nth-child(5) {
+          display: none;
+        }
+      }
     }
   }
 `;

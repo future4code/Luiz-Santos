@@ -2,13 +2,6 @@ import styled from 'styled-components';
 
 export const CreateTripContainer = styled.section`
   h5 {
-    font-family: 'Barlow Condensed';
-    font-weight: 400;
-    font-size: 2.8rem;
-    line-height: 3.4rem;
-
-    letter-spacing: 4.725px;
-    text-transform: uppercase;
     margin-bottom: 4rem;
   }
 
@@ -37,6 +30,17 @@ export const CreateTripContainer = styled.section`
     &:disabled {
       background: #bcbcbc;
       cursor: wait;
+    }
+  }
+
+  @media (max-width: 600px) {
+    form {
+      max-width: 100%;
+    }
+
+    button {
+      width: 100%;
+      font-size: 1.4rem;
     }
   }
 `;

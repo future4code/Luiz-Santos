@@ -48,4 +48,17 @@ export const FormGroup = styled.div`
       font-size: 1.6rem;
     }
   }
+
+  @media (max-width: 960px) {
+    label {
+      font-size: 1.6rem;
+    }
+  }
+
+  @media (max-width: 500px) {
+    label,
+    input {
+      font-size: 1.4rem;
+    }
+  }
 `;

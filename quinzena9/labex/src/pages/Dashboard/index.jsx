@@ -50,7 +50,10 @@ const Dashboard = () => {
             </li>
           </ul>
 
-          <p>Labex - 2021 &copy; Todos os direitos reservados</p>
+          <p>
+            Labex &copy; 2021 <br />
+            Todos os direitos reservados
+          </p>
         </Sidebar>
         <ContentDashboard>
           <Routes>
