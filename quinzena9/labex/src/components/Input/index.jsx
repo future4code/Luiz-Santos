@@ -1,15 +1,14 @@
 import React from 'react';
 import { FormGroup } from './styles';
 
-export const Input = ({ label, name, value, setValue, ...props }) => {
+export const Input = ({ label, name, value, onChange, ...props }) => {
   return (
     <FormGroup>
       <input
-        type='text'
         name={name}
         value={value}
         id={name}
-        onChange={(event) => setValue(event.target.value)}
+        onChange={onChange}
         {...props}
       />
       <label htmlFor={name}>{label}</label>

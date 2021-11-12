@@ -32,12 +32,6 @@ export const ListTripsContent = styled.div`
       border: 0;
       background: #2f303a;
 
-      &:last-child {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
       a {
         color: #d0d6f9;
         transition: all 0.2s ease;

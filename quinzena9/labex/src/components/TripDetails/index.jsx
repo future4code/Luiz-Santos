@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Link } from 'react-router-dom';
-import api from '../../services/api';
+import { useFetch } from '../../hooks/useFetch';
+import { Table } from '../Table';
 import {
   ListCanditadesContainer,
   TripDetailsContainer,
@@ -9,118 +9,116 @@ import {
 } from './styles';
 
 export const TripDetails = () => {
-  const [data, setData] = useState(null);
+  const { isLoading, error, request } = useFetch();
+  const [listCandidates, setListCandidates] = useState([]);
+  const [listApproved, setListApproved] = useState([]);
+  const [trip, setTrip] = useState({});
+
   const { tripId } = useParams();
 
   useEffect(() => {
     async function getTrip() {
-      try {
-        const token = localStorage.getItem('token');
-        const response = await api.get(`/trip/${tripId}`, {
-          headers: {
-            'Content-Type': 'application/json',
-            auth: token,
-          },
-        });
-
-        setData(response.data);
-      } catch (error) {
-        console.log(error);
-      }
+      const token = localStorage.getItem('token');
+      const response = await request({
+        url: `/trip/${tripId}`,
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          auth: token,
+        },
+      });
+      setListCandidates(response.data.trip.candidates);
+      setListApproved(response.data.trip.approved);
+      const { name, planet, durationInDays, description, date } =
+        response.data.trip;
+      setTrip({ name, planet, durationInDays, description, date });
     }
     getTrip();
-  }, [tripId]);
+  }, [tripId, request]);
 
   const handleAproveCanditateToTrip = async (id) => {
     const token = localStorage.getItem('token');
-    try {
-      const body = {
-        approve: true,
-      };
-      const response = await api.put(
-        `/trips/${tripId}/candidates/${id}/decide`,
-        body,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            auth: token,
-          },
-        }
-      );
 
-      console.log(response);
-    } catch (error) {
-      console.log(error.response.data.message);
+    const response = await request({
+      url: `/trips/${tripId}/candidates/${id}/decide`,
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        auth: token,
+      },
+      data: {
+        approve: true,
+      },
+    });
+
+    if (response.status === 200) {
+      const newApproved = listCandidates.find(
+        (candidate) => candidate.id === id
+      );
+      setListApproved((prevState) => [newApproved, ...prevState]);
+
+      const newListCandidates = listCandidates.filter(
+        (candidate) => candidate.id !== id
+      );
+      setListCandidates(newListCandidates);
     }
   };
 
-  console.log(data);
+  if (isLoading) return <p>Carregando...</p>;
+  if (error) return <p>{error}</p>;
 
-  if (data)
-    return (
-      <TripDetailsContainer>
-        <h5>Detalhes da Viagem</h5>
+  return (
+    <TripDetailsContainer>
+      <h5>Detalhes da Viagem</h5>
 
-        <TripInfo>
-          <p>
-            <span>Viagem:</span> {data.trip.name}
-          </p>
-          <p>
-            <span>Descrição:</span> {data.trip.description}
-          </p>
-          <p>
-            <span>Planeta:</span> {data.trip.planet}
-          </p>
-          <p>
-            <span>Data:</span> {data?.trip?.date}
-          </p>
-          <p>
-            <span>Duração:</span> {data.trip.durationInDays} dias
-          </p>
-        </TripInfo>
+      <TripInfo>
+        <p>
+          <span>Viagem:</span> {trip?.name}
+        </p>
+        <p>
+          <span>Descrição:</span> {trip?.description}
+        </p>
+        <p>
+          <span>Planeta:</span> {trip?.planet}
+        </p>
+        <p>
+          <span>Data:</span> {trip?.date}
+        </p>
+        <p>
+          <span>Duração:</span> {trip?.durationInDays} dias
+        </p>
+      </TripInfo>
 
-        {data.trip.candidates.length === 0 ? (
-          <p>Nenhum candidato cadastrado.</p>
+      <ListCanditadesContainer>
+        <h5>Candidatos</h5>
+        {listCandidates.length > 0 ? (
+          <Table
+            tableHeadItems={[
+              'Nome',
+              'Idade',
+              'Profissão',
+              'Texto',
+              'País',
+              'Aprovar Viagem',
+            ]}
+            tableBodyData={listCandidates}
+            handleAproveCanditateToTrip={handleAproveCanditateToTrip}
+          />
         ) : (
-          <ListCanditadesContainer>
-            <h5>Candidatos</h5>
-            <table>
-              <thead>
-                <tr>
-                  <th></th>
-                  <th>Nome</th>
-                  <th>Idade</th>
-                  <th>Profissão</th>
-                  <th>Texto</th>
-                  <th>País</th>
-                  <th>Aprovar Viagem</th>
-                </tr>
-              </thead>
-              <tbody>
-                {data?.trip?.candidates?.map((candidate, index) => (
-                  <tr key={candidate.id}>
-                    <td>{index + 1}</td>
-                    <td>{candidate.name}</td>
-                    <td>{candidate.age}</td>
-                    <td>{candidate.profession}</td>
-                    <td>{candidate.applicationText}</td>
-                    <td>{candidate.country}</td>
-                    <td>
-                      <button
-                        onClick={() =>
-                          handleAproveCanditateToTrip(candidate.id)
-                        }
-                      >
-                        Aprovar
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </ListCanditadesContainer>
+          <span>0</span>
         )}
-      </TripDetailsContainer>
-    );
-  else return null;
+      </ListCanditadesContainer>
+      <ListCanditadesContainer>
+        <h5>Aprovados</h5>
+        {listApproved.length > 0 ? (
+          <Table
+            tableHeadItems={['Nome', 'Idade', 'Profissão', 'Texto', 'País']}
+            tableBodyData={listApproved}
+          />
+        ) : (
+          <span>0</span>
+        )}
+      </ListCanditadesContainer>
+    </TripDetailsContainer>
+  );
 };

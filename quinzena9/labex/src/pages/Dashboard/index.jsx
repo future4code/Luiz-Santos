@@ -54,7 +54,7 @@ const Dashboard = () => {
         </Sidebar>
         <ContentDashboard>
           <Routes>
-            <Route index path='/' element={<ListTrips />} />
+            <Route path='/' element={<ListTrips />} />
             <Route path='/create-trip' element={<CreateTripForm />} />
             <Route path='/trip-detais/:tripId' element={<TripDetails />} />
           </Routes>

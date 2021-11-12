@@ -7,11 +7,9 @@ export const FormGroup = styled.div`
 
   label {
     display: block;
-    font-family: 'Barlow Condensed';
     font-weight: 400;
     font-size: 1.8rem;
     line-height: 1.9rem;
-    letter-spacing: 2.7px;
     position: absolute;
     top: 10px;
     pointer-events: none;
@@ -27,7 +25,7 @@ export const FormGroup = styled.div`
     background: none;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.35);
-    color: #fff;
+    color: #e9e9e9;
     transition: all 0.2s ease;
 
     &::placeholder {

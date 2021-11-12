@@ -1,16 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
-
+import { useForm } from '../../hooks/useForm';
 import { Input } from '../../components/Input';
 import { LoginContainer, LoginContent } from './styles';
-import api from '../../services/api';
 import { Header } from '../../components/Header';
+import { useFetch } from '../../hooks/useFetch';
 
 export default function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const { isLoading, error, request } = useFetch();
+  const { form, onChange, clearFields } = useForm({
+    email: '',
+    password: '',
+  });
 
   const navigate = useNavigate();
   let location = useLocation();
@@ -18,24 +19,17 @@ export default function Login() {
   let { from } = location.state || { from: { pathname: '/dashboard' } };
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const body = {
-      email,
-      password,
-    };
-
-    try {
-      setIsLoading(true);
-      const response = await api.post('/login', body);
-
-      localStorage.setItem('token', response.data.token);
-      setIsLoading(false);
-      navigate(from, { replace: true });
-    } catch (error) {
-      console.log(error.response.data);
-      setError(error.response.data.message);
-      setIsLoading(false);
+    const response = await request({
+      url: '/login',
+      method: 'POST',
+      data: form,
+    });
+    if (!response) {
+      clearFields();
+      return;
     }
+    localStorage.setItem('token', response.data.token);
+    navigate(from, { replace: false });
   };
 
   return (
@@ -50,16 +44,16 @@ export default function Login() {
               label='Email'
               name='email'
               type='email'
-              value={email}
-              setValue={setEmail}
+              value={form.email}
+              onChange={onChange}
               required
             />
             <Input
               label='Senha'
               name='password'
               type='password'
-              value={password}
-              setValue={setPassword}
+              value={form.password}
+              onChange={onChange}
               required
             />
             <button disabled={isLoading}>Entrar</button>

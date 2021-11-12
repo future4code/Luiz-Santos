@@ -1,4 +1,4 @@
-export const dataImg = [
+export const dataPlanets = [
   {
     id: 1,
     name: 'Lua',
@@ -11,7 +11,7 @@ export const dataImg = [
   },
   {
     id: 3,
-    name: 'Mercurio',
+    name: 'Mercúrio',
     imgSource: './img/mercurio-01.png',
   },
   {

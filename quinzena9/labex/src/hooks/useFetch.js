@@ -12,12 +12,12 @@ export const useFetch = () => {
     try {
       setError(null);
       setIsLoading(true);
-      const response = await api(params);
+      response = await api(params);
       setData(response.data);
       setIsLoading(false);
     } catch (error) {
       console.log('USEFETCH', error.response.data);
-      setError(error.response.data);
+      setError(error.response.data.message);
     } finally {
       setIsLoading(false);
       return response;

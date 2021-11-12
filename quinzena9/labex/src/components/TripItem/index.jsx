@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { dataImg } from '../../data/dataImg';
+import { dataPlanets } from '../../constantes/dataPlanets';
 
 import { TripContent, TripDetails, TripDetailsDate } from './styles';
 
 import luaImg from '../../img/lua.png';
 
 export const TripItem = ({ trip }) => {
-  const planet = dataImg.find(
+  const planet = dataPlanets.find(
     (item) => item.name.toLocaleLowerCase() === trip?.planet.toLocaleLowerCase()
   );
 

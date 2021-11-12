@@ -1,22 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import api from '../../services/api';
 
 import { Input } from '../../components/Input';
-import { Container, Content, FormContainer, FormGroupSelect } from './styles';
 import { Header } from '../../components/Header';
 import { useFetch } from '../../hooks/useFetch';
+import { useForm } from '../../hooks/useForm';
+
+import { Container, Content, FormContainer, FormGroupSelect } from './styles';
 
 export default function AplicationForm() {
-  const [name, setName] = useState('');
-  const [age, setAge] = useState('');
-  const [profession, setProfession] = useState('');
-  const [applicationText, setApplicationText] = useState('');
-  const [tripId, setTripId] = useState('');
-  const [country, setCountry] = useState('');
-  const [countriesData, setCountriesData] = useState([]);
+  const { form, onChange, clearFields } = useForm({
+    name: '',
+    age: '',
+    profession: '',
+    applicationText: '',
+    tripId: '',
+    country: '',
+  });
 
-  const { data, isLoading, error, request } = useFetch();
+  const [countriesData, setCountriesData] = useState([]);
+  const [listTrips, setListTrips] = useState([]);
+  const { isLoading, error, request } = useFetch();
 
   const getCountries = async () => {
     try {
@@ -36,44 +40,32 @@ export default function AplicationForm() {
 
   useEffect(() => {
     async function getTrips() {
-      await request({
+      const response = await request({
         url: '/trips',
         method: 'GET',
       });
+
+      setListTrips(response.data.trips);
     }
-    getTrips();
     getCountries();
+    getTrips();
   }, [request]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const body = {
-      name,
-      age,
-      profession,
-      applicationText,
-      country,
-    };
-    try {
-      const response = await api.post(`/trips/${tripId}/apply`, body);
+    const response = await request({
+      url: `/trips/${form.tripId}/apply`,
+      method: 'POST',
+      data: form,
+    });
 
-      if (response.status === 200) {
-        alert(response.data.message);
-      }
-      setName('');
-      setAge('');
-      setProfession('');
-      setTripId('');
-      setApplicationText('');
-      setCountry('');
-    } catch (error) {
-      console.log(error);
-      alert('Algo deu errado, tente novamente \n' + error);
+    if (response.status === 200) {
+      alert(response.data.message);
     }
+    clearFields();
   };
 
   if (error) return <p>{error}</p>;
-
   return (
     <>
       <Header />
@@ -82,56 +74,54 @@ export default function AplicationForm() {
           <h5>Inscreva-se para uma viagem</h5>
 
           <FormContainer onSubmit={handleSubmit}>
-            <Input
-              name='name'
-              label='Nome'
-              value={name}
-              setValue={setName}
-              required
-            />
-            <Input
-              name='age'
-              label='Idade'
-              value={age}
-              setValue={setAge}
-              required
-            />
-            <Input
-              name='profession'
-              label='Profissão'
-              value={profession}
-              setValue={setProfession}
-              required
-            />
-            <Input
-              name='applicationText'
-              label='Texto de Candidatura'
-              value={applicationText}
-              setValue={setApplicationText}
-              required
-            />
-
             <FormGroupSelect>
               <select
-                value={tripId}
-                onChange={(event) => setTripId(event.target.value)}
+                name='tripId'
+                value={form.tripId}
+                onChange={onChange}
                 disabled={isLoading}
               >
                 <option value='' disabled>
                   Selecione uma viagem
                 </option>
-                {data?.trips?.map((trip) => (
+                {listTrips?.map((trip) => (
                   <option key={trip.id} value={trip.id}>
                     {trip.name}
                   </option>
                 ))}
               </select>
             </FormGroupSelect>
+            <Input
+              name='name'
+              label='Nome'
+              value={form.name}
+              onChange={onChange}
+              required
+            />
+            <Input
+              name='age'
+              label='Idade'
+              value={form.age}
+              onChange={onChange}
+              required
+            />
+            <Input
+              name='profession'
+              label='Profissão'
+              value={form.profession}
+              onChange={onChange}
+              required
+            />
+            <Input
+              name='applicationText'
+              label='Texto de Candidatura'
+              value={form.applicationText}
+              onChange={onChange}
+              required
+            />
+
             <FormGroupSelect>
-              <select
-                value={country}
-                onChange={(event) => setCountry(event.target.value)}
-              >
+              <select name='country' value={form.country} onChange={onChange}>
                 <option value='' disabled>
                   Selecione um país
                 </option>
