@@ -1,70 +1,57 @@
-# Getting Started with Create React App
+# Labefy
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Projeto para gerenciamento de playlists de musicas.
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Criar playlist
+![p2-labefy](https://user-images.githubusercontent.com/53241383/137571347-16faa36e-bf0d-4c73-8658-36a232ee1c9f.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Detalhes da Playlist
+![p3-labefy](https://user-images.githubusercontent.com/53241383/137571095-29665085-904c-4142-a582-dcbec44a048a.png)
+![p4-labefy](https://user-images.githubusercontent.com/53241383/137571101-a37157cc-3319-46ef-a2bd-a79bd7b3eadb.png)
 
-### `yarn test`
+## Preview
+[Labefy](https://profuse-liquid.surge.sh/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tecnologias utilizadas
 
-### `yarn build`
+- React
+- Styled-Components
+- Axios
+- react-h5-audio-player
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Pré-requisitos
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com/) e [Node.js](https://nodejs.org/pt-br/).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Como rodar a aplicação localmente
 
-### `yarn eject`
+Clone o projeto
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```bash
+  git clone https://github.com/luiz-gustavo0/labefy.git
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Vá até a pasta do projeto
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```bash
+  cd labefy
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Instale as dependências
 
-## Learn More
+```bash
+  npm install
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Inicie o servidor
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```bash
+  npm run start
+```
 
-### Code Splitting
+## Author
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [@luiz-gustavo0](https://linkedin.com/in/luiz-gustavo0)
